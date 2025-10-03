@@ -1,0 +1,1 @@
+Run instructions:\n1. pip install -r requirements.txt\n2. python app.py\nOpen http://localhost:5000/\n
