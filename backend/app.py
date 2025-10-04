@@ -1,4 +1,3 @@
-
 from flask import Flask, jsonify, request, send_from_directory
 import sqlite3, os
 
@@ -71,7 +70,7 @@ def add_request():
 def update_request_status(req_id):
     data = request.get_json() or request.form
     status = data.get('status')
-    if status not in ('pending','fulfilled','cancelled'):
+    if status not in ('pending', 'approved', 'rejected', 'fulfilled'):
         return jsonify({'error':'invalid status'}), 400
     conn = get_db()
     conn.execute('UPDATE requests SET status=? WHERE id=?', (status, req_id))
